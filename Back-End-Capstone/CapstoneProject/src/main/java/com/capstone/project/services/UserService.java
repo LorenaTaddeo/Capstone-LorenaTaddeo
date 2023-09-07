@@ -1,5 +1,7 @@
 package com.capstone.project.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.ObjectProvider;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +28,20 @@ public class UserService {
 	
 	public void saveUser(User u) {
 		userRepo.save(u);
-		System.out.println(u);
+		System.out.println("User saved");
+	}
+	
+	public List<User> listUsers () {
+		return (List<User>) userRepo.findAll();
 	}
 	
 	public User findUserId(Long id) {
 		return userRepo.findById(id).get();
 	}
 	
+	public void deleteUser(Long id) {
+		userRepo.deleteById(id);
+	}
 	
 	
 }
