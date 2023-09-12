@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.capstone.project.security.entity.User;
+import com.capstone.project.dto.UserDto;
+import com.capstone.project.entity.User;
 import com.capstone.project.services.UserService;
 
 @RestController
@@ -35,23 +36,24 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public void newUser(@RequestBody User user) {
+	public void newUser(@RequestBody UserDto user) {
 		userService.saveUser(user);
 	}
 	
-	@PutMapping
-	public ResponseEntity<User> updateUser(@RequestBody User user){
+	@PutMapping("/{id}")
+	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto user){
 		userService.saveUser(user);
-		return new ResponseEntity<User>(user, HttpStatus.OK);
+		return new ResponseEntity<UserDto>(user, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<User> removeUserById(@PathVariable Long id){
-		User u = userService.findUserId(id);
-		userService.deleteUser(id);
-		return new ResponseEntity<User>(u, HttpStatus.OK);
+	public ResponseEntity<?> removeUserById(@PathVariable Long id){
+		try {
+			User u = userService.findUserId(id);
+			userService.deleteUser(id);
+			return new ResponseEntity<User>(u, HttpStatus.OK);
+		}catch(Exception e){
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
 	}
-	
-	
-
 }

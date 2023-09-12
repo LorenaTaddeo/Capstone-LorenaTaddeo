@@ -5,14 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.capstone.project.classes.Scooter;
+import com.capstone.project.dto.ScooterDto;
+import com.capstone.project.entity.Scooter;
 import com.capstone.project.services.ScooterService;
 
 @RestController
@@ -21,27 +24,52 @@ public class ScooterController {
 
 	@Autowired ScooterService scooterService;
 	
+	@GetMapping("/")
+	public String getHome() {
+		return "Home";
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<Scooter>> getAll(){
 		return new ResponseEntity<List<Scooter>>(scooterService.listScooter(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Scooter> getScooterById(@PathVariable Long id){
-		return new ResponseEntity<Scooter>(scooterService.findScooterId(id), HttpStatus.OK);
+	public ResponseEntity<?> getScooterById(@PathVariable Long id){
+		try {
+			Scooter s = scooterService.findScooterId(id);
+			return new ResponseEntity<Scooter>(s, HttpStatus.OK);	
+		}catch(Exception e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
 	}
 	
-	@PostMapping("/add/scooter")
-	public ResponseEntity<String> newScooter(){
-		scooterService.saveScooter(scooterService.createScooter());
+	@GetMapping("/plate/{plate}")
+	public ResponseEntity<?> getScooterByPlate(@PathVariable String plate) {
+		try {
+			Scooter p = scooterService.getByPlate(plate);
+			return new ResponseEntity<Scooter>(p, HttpStatus.OK);
+		}catch(Exception e){
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+		
+	
+	@PostMapping
+	public ResponseEntity<String> newScooter(@RequestBody ScooterDto scooter){
+		scooterService.saveScooter(scooter);
 		return new ResponseEntity<String>("New scooter!", HttpStatus.OK);
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<Scooter> removeScooterById(@PathVariable Long id){
-		Scooter s = scooterService.findScooterId(id);
-		scooterService.deleteScooter(id);
-		return new ResponseEntity<Scooter>(s, HttpStatus.OK);
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> removeScooterById(@PathVariable Long id){
+		try {
+			Scooter s = scooterService.findScooterId(id);
+			scooterService.deleteScooter(id);
+			return new ResponseEntity<Scooter>(s, HttpStatus.OK);
+		}catch(Exception e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
 	}
 	
 }
