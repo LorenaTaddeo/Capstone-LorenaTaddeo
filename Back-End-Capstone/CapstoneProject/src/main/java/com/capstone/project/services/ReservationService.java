@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import com.capstone.project.dto.ReservationDto;
 import com.capstone.project.entity.Reservation;
 import com.capstone.project.entity.Scooter;
-import com.capstone.project.entity.User;
 import com.capstone.project.repository.ReservationRepo;
+import com.capstone.project.security.entity.User;
 
 @Service
 public class ReservationService {
@@ -24,12 +24,8 @@ public class ReservationService {
 		return reservationProvider.getObject();
 	}
 	
-	public void saveReservation(ReservationDto reservationDto) {
-		Reservation r = new Reservation();
-		r.setBookingDay(reservationDto.getBookingDay());
-		r.setScooter(reservationDto.getScooter());
-		r.setUser(reservationDto.getUser());
-		reservationRepo.save(r);
+	public void saveReservation(Reservation reservation) {
+		reservationRepo.save(reservation);
 		System.out.println("Reservation Saved");
 	}
 	

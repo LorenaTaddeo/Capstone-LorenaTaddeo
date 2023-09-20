@@ -2,6 +2,8 @@ package com.capstone.project.entity;
 
 import java.time.LocalDate;
 
+import com.capstone.project.security.entity.User;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

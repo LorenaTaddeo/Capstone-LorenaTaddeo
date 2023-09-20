@@ -3,7 +3,7 @@ package com.capstone.project.dto;
 import java.time.LocalDate;
 
 import com.capstone.project.entity.Scooter;
-import com.capstone.project.entity.User;
+import com.capstone.project.security.entity.User;
 
 import lombok.Data;
 

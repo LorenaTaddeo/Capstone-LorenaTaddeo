@@ -61,6 +61,7 @@ public class ScooterController {
 		return new ResponseEntity<String>("New scooter!", HttpStatus.OK);
 	}
 	
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> removeScooterById(@PathVariable Long id){
 		try {

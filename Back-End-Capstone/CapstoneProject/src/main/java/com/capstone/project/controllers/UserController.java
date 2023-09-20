@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capstone.project.dto.UserDto;
-import com.capstone.project.entity.User;
+import com.capstone.project.security.entity.User;
 import com.capstone.project.services.UserService;
 
 @RestController
@@ -35,15 +35,17 @@ public class UserController {
 		return new ResponseEntity<User>(userService.findUserId(id), HttpStatus.OK);
 	}
 	
-	@PostMapping
-	public void newUser(@RequestBody UserDto user) {
-		userService.saveUser(user);
-	}
-	
+
 	@PutMapping("/{id}")
-	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto user){
-		userService.saveUser(user);
-		return new ResponseEntity<UserDto>(user, HttpStatus.OK);
+	public ResponseEntity<User> updateUser(@RequestBody UserDto user, @PathVariable Long id){
+		User u = userService.findUserId(id);
+		u.setName(user.getName());
+		u.setLastname(user.getLastname());
+		u.setUsername(user.getUsername());
+		u.setEmail(user.getEmail());
+		u.setPassword(user.getPassword());
+		userService.saveUser(u);
+		return new ResponseEntity<User>(u, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
