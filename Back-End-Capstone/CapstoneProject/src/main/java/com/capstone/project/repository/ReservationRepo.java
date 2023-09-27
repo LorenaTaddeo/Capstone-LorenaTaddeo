@@ -1,6 +1,7 @@
 package com.capstone.project.repository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -16,4 +17,9 @@ public interface ReservationRepo extends CrudRepository<Reservation, Long>{
 
     @Query("SELECT p FROM Reservation p WHERE p.user = :user AND p.bookingDay = :bookingDay")
     public Reservation findReservationByUserAndDate(User user, LocalDate bookingDay);
+    
+    @Query("SELECT p FROM Reservation p WHERE p.bookingDay = :bookingDay")
+    public List<Reservation> findReservationByDate(LocalDate bookingDay);
+
+    
 }

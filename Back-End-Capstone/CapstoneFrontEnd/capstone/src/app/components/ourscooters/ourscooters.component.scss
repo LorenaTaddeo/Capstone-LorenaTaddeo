@@ -1,0 +1,113 @@
+.section{
+  padding-top: 20px;
+}
+.trainers{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.trainers .member {
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid #eef0ef;
+    background: #fff;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: #3ac162;
+    width: 376px;
+  }
+  
+  .trainers .member img {
+    margin: -1px -1px 32px -1px;
+    height: 230px;
+    &.first-img{
+      margin-bottom: 0;
+    }
+  }
+  
+  .trainers .member .member-content {
+    padding: 20px 20px 30px 20px;
+  }
+  
+  .trainers .member h4 {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-style: italic;
+  }
+  
+  .trainers .member span {
+    display: block;
+    font-size: 13px;
+  }
+  
+  .trainers .member p {
+    padding-top: 10px;
+    font-size: 14px;
+    font-style: italic;
+    color: #aaaaaa;
+  }
+  
+  .trainers .member .social {
+    margin-top: 15px;
+  }
+  
+  .trainers .member .social a {
+    color: #7e9486;
+    transition: 0.3s;
+  }
+  
+  .trainers .member .social a:hover {
+    color: #5fcf80;
+  }
+  
+  .trainers .member .social i {
+    font-size: 18px;
+    margin: 0 2px;
+  }
+
+  .row{
+    justify-content: center;
+  }
+
+  .img-fluid{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  
+  
+  .section-title {
+    padding-bottom: 40px;
+    color: #3ac162;
+  }
+  
+  .section-title h2 {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .section-title h2::after {
+    content: "";
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    background: #9ae1af;
+    margin: 4px 10px;
+  }
+  
+  .section-title p {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    color: #3ac162;;
+  }

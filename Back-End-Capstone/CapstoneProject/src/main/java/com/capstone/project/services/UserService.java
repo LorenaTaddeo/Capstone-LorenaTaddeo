@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.capstone.project.dto.UserDto;
+import com.capstone.project.entity.Scooter;
 import com.capstone.project.repository.UserRepo;
 import com.capstone.project.security.entity.User;
 
@@ -38,6 +39,10 @@ public class UserService {
 	public void deleteUser(Long id) {
 		userRepo.deleteById(id);
 		System.out.println("User Removed");
+	}
+	
+	public User getByUsername(String username) {
+		return userRepo.findByUsername(username).get();
 	}
 	
 	

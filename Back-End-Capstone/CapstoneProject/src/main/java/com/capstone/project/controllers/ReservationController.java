@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/api/reservation")
+@CrossOrigin(origins = "*")
 public class ReservationController {
 
 	@Autowired ReservationService reservationService;
@@ -61,6 +63,16 @@ public class ReservationController {
 		try {
 			Reservation r = reservationService.getByUserAndDate(user, bookingDay);
 			return new ResponseEntity<Reservation>(r, HttpStatus.OK);
+		}catch(Exception e){
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/bookingDay")
+	public ResponseEntity<?> getReservationByDate(@RequestParam LocalDate bookingDay) {
+		try {
+			List<Reservation> r = reservationService.getByDate(bookingDay);
+			return new ResponseEntity <List<Reservation>>(r, HttpStatus.OK);
 		}catch(Exception e){
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}

@@ -1,0 +1,8 @@
+import { User } from "./user";
+
+export interface AccessData {
+  
+    accessToken: string;
+    username: string;
+    tokenType: string
+}

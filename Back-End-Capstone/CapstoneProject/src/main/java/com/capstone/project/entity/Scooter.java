@@ -1,10 +1,8 @@
 package com.capstone.project.entity;
-import com.capstone.project.enumerated.ScooterStatus;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,9 +22,6 @@ public class Scooter {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Enumerated(EnumType.STRING)
-	private ScooterStatus scooterstatus;
-	
 	@Column(name = "plate")
 	private String plate;
 	
@@ -39,9 +34,8 @@ public class Scooter {
 	@Column(name = "brand")
 	private String brand;
 
-	public Scooter(ScooterStatus scooterstatus, String plate, String model, String color, String brand) {
+	public Scooter(String plate, String model, String color, String brand) {
 		super();
-		this.scooterstatus = scooterstatus;
 		this.plate = plate;
 		this.model = model;
 		this.color = color;
