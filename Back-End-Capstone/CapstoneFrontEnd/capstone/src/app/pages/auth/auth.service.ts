@@ -40,26 +40,33 @@ getAuthToken():string {
   return this.authToken || ''
 }
 
-  login(data:LoginData): Observable<AccessData & {id: number}>{
-    let userData={} as AccessData
+logout(): void{
+  localStorage.removeItem('accessData');
+  this.authSubject.next(null);
+}
+
+
+
+  login(data:LoginData): Observable<AccessData>{
+    let accessData={} as AccessData
     return this.http.post<Omit<AccessData, 'id'>>(this.apiUrl + '/login', data)
     .pipe(tap(data =>{
-      userData=data;
+      accessData=data;
       this.authSubject.next(data);
       const expDate = this.jwtHelper
       .getTokenExpirationDate(data.accessToken) as Date;
       this.authToken= `${data.tokenType} ${data.accessToken}`;
-      localStorage.setItem('accessData', JSON.stringify(data));
+     
     }),
     switchMap(()=>{
       return this.http.get(`http://127.0.0.1:8080/api/users/username/${data.username}`)
     }),
     map((userAdditionalData: any)=>{
-      (userData as AccessData &{id: number}).id=userAdditionalData.id;
+      accessData.id=userAdditionalData.id;
       return userAdditionalData;
     }),
-    tap((data: AccessData &{id: number})=>{
-      localStorage.setItem('user', JSON.stringify(data))
+    tap((data: AccessData)=>{
+      localStorage.setItem('accessData', JSON.stringify(accessData));
     })
       
     )

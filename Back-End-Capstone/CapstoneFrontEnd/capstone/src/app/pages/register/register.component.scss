@@ -1,8 +1,16 @@
+
 @media (max-width: 991.98px) {
     .cascading-right {
     margin-right: 0;
     }
 }
+
+// @media (max-width: 991px) {
+//     &.cascading-right {
+//         background-image: url("../../../assets/img/Top\ 4\ electric\ scooters\ for\ college\ students.jpeg");
+
+//     }
+// }
 
 .text-center{
     margin-top: 150px;
@@ -17,11 +25,14 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    color:rgb(0, 0, 0);
 }
 
 .cascading-right{
     margin-right: -50px;
+    background-color: #d8c4bc9a;
 }
+
 
 #header {
     background: #fff;

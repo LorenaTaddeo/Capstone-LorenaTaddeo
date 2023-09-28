@@ -1,6 +1,7 @@
-.section{
-  padding-top: 20px;
+#ourscooters{
+  padding-top: 3rem;
 }
+
 .trainers{
   margin-top: 50px;
   margin-bottom: 50px;
@@ -18,7 +19,6 @@
   }
   
   .trainers .member img {
-    margin: -1px -1px 32px -1px;
     height: 230px;
     &.first-img{
       margin-bottom: 0;

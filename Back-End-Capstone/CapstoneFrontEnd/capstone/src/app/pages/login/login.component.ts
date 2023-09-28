@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { LoginData } from '../interfaces/login-data';
+import { AuthService } from '../auth/auth.service';
+import { LoginData } from '../auth/interfaces/login-data';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -10,25 +10,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
-  // constructor(
-  //   private authSvc: AuthService,
-  //   private router:Router
-  // ){}
-
-
-  // data: LoginData = {
-  //   username: '',
-  //   password: ''
-  // }
-
-  // login(){
-  //   this.authSvc.login(this.data)
-  //   .subscribe(accessData => {
-  //     alert(`Sei loggato come ${accessData.username}`)
-  //     this.router.navigate(['/book']);
-  //   })
-  // }
 
   protected isSubmitted=false;
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/pages/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   protected isCollapsed= false;
+  protected isLoggedIn$;
+
+constructor(private authService: AuthService){
+      this.isLoggedIn$=authService.isLoggedIn$
+}
+
+logout(){
+  this.authService.logout();
+}
+
+
 }

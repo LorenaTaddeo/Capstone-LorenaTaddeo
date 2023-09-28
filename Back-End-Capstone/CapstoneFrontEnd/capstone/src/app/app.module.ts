@@ -18,6 +18,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BookComponent } from './pages/book/book.component';
 import { AuthInterceptor } from './pages/auth/auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -34,6 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DownloadappComponent,
     WhyscootComponent,
     BookComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

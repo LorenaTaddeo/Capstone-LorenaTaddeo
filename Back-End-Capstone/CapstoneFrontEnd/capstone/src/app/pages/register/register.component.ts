@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RegisterData } from '../interfaces/register-data';
-import { AuthService } from '../auth.service';
+import { RegisterData } from '../auth/interfaces/register-data';
+import { AuthService } from '../auth/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 

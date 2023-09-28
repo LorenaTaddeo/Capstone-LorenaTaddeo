@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { RegisterComponent } from './pages/auth/register/register.component';
-import { LoginComponent } from './pages/auth/login/login.component';
-import { AuthModule } from './pages/auth/auth.module';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 import { BookComponent } from './pages/book/book.component';
 import { AuthGuard } from './pages/auth/auth.guard';
-import { AuthComponent } from './pages/auth/auth.component';
 
 
 const routes: Routes = [
@@ -18,10 +16,6 @@ const routes: Routes = [
 {
   path: 'home',
   component: HomeComponent,
-},
-{
-  path: 'auth',
-  component: AuthComponent,
 },
 {
   path: 'register',
@@ -40,7 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),AuthModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
