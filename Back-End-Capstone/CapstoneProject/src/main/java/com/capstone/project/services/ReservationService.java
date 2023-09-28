@@ -50,8 +50,8 @@ public class ReservationService {
 		return reservationRepo.findReservationByDateAndScooter(bookingDay, scooter);
 	}
 	
-	public Reservation getByUserAndDate(User user,LocalDate bookingDay) {
-		return reservationRepo.findReservationByUserAndDate(user, bookingDay);
+	public List<Reservation> getByUser(User user) {
+		return (List<Reservation>) reservationRepo.findReservationByUser(user);
 	}
 	
 	public List<Reservation> getByDate(LocalDate bookingDay) {

@@ -58,11 +58,11 @@ public class ReservationController {
 		}
 	}
 	
-	@GetMapping("/user-bookingDay")
-	public ResponseEntity<?> getReservationByUserAndDate(@RequestParam User user, @RequestParam LocalDate bookingDay) {
+	@GetMapping("/user")
+	public ResponseEntity<?> getReservationByUser(@RequestParam User user) {
 		try {
-			Reservation r = reservationService.getByUserAndDate(user, bookingDay);
-			return new ResponseEntity<Reservation>(r, HttpStatus.OK);
+			List<Reservation> r = reservationService.getByUser(user);
+			return new ResponseEntity <List<Reservation>>(r, HttpStatus.OK);
 		}catch(Exception e){
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}

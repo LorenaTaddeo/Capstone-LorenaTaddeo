@@ -1,85 +1,88 @@
 <app-header></app-header>
-<section id="trainers" class="trainers">
+<section class="trainers">
+  <div class="container">
 
-  <div class="container" data-aos="fade-up">
     <div class="section-title">
       <h2>Our Scooters</h2>
       <p>Reserve your scooter</p>
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-            <ngb-datepicker #dp [(ngModel)]="model"></ngb-datepicker>
+      <div class="row d-flex">
+        <div class="col-lg-4 justify-content-between section-date">
+            <h3>Select the date and source</h3>
+            <ngb-datepicker class="datepicker" #dp [(ngModel)]="model"></ngb-datepicker>
+            <div class="div-button">
+              <button class="search-button" type="button" (click)="setDate()">Cerca</button>
+            </div>
         </div>
-        <div class="col-lg-6">
-            <button type="button" (click)="setDate()">Cerca</button>
-        </div>
-      </div>
-    </div>
-  
-
-  <div class="row d-flex justify-content-center">
-    <div *ngFor="let scooter of scooters" class="col-lg-3 col-md-6 d-flex justify-content-center align-items-center scooter">
-      <div class="member" [class.background-red]="scooter.scooterstatus=='BUSY'">
-        <div class="member-content" >
-          <h4>{{scooter.brand}}</h4>
-          <img src="../../../assets/img/Turboant X7 senza sfondo.png" class="img-fluid first-img" alt="">
-          <ul class="list-scooter">
-            <li>Color: {{scooter.color}}</li>
-            <li>Plate: {{scooter.plate}}</li>
-            <li>Model: {{scooter.model}}</li>
-            <li>{{scooter.id}}</li>
-            <li>{{scooter.scooterstatus}}</li>
-            <li>
-              <button [disabled]="scooter.scooterstatus=='BUSY'" type="button" class="btn btn-dark" (click)="changeStatus(scooter.id)">RESERVE</button>
-            </li>
-          </ul>
+        <div class="col-lg-8">
+          <h3 class="book">Book your scooter</h3>
+          <div class="mb-5" *ngFor="let scooter of scooters">
+            <div class="member" [class.background-red]="scooter.scooterstatus=='BUSY'">
+                <div class="member-content">
+                  <div class="row justify-content-end">
+                    <div class="col-lg-3">
+                      <img src="../../../assets/img/Turboant X7 senza sfondo.png">
+                    </div>
+                    <div class="col-lg-6">
+                      <h4 class="titleScooter">{{scooter.brand}}</h4>
+                      <ul class="list-scooter row d-flex">
+                        <div class="col-6 align-self-center">
+                        <li>Color: <span>{{scooter.color}}</span></li>
+                        <li>Plate: <span>{{scooter.plate}}</span></li>
+                        </div>
+                        <div class="col-6">
+                        <li>Model: <span>{{scooter.model}}</span></li>
+                        <li>Status: <span>{{scooter.scooterstatus}}</span></li>
+                      </div>
+                      </ul>
+                    </div>
+                    <div class="col-lg-3 div-button-reserve">
+                        <button [disabled]="scooter.scooterstatus=='BUSY'" type="button" class="btn btn-dark" (click)="changeStatus(scooter.id)">RESERVE</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
-
-<section id="trainers" class="trainers">
-  <div class="container" data-aos="fade-up">
-    <div class="section-title">
-      <h2>Your Scooters</h2>
-      <p>Your Reservations</p>
-    </div>
-    <div *ngFor="let day of reservationsByDayMap | keyvalue">
-      {{day.key}}
-    
-    <div *ngFor="let scooter of day.value">
-      {{scooter.id}}  {{scooter.plate}}
-      <button (click)="deleteReservation(scooter.reservationId)">Delete</button>
-    </div>
+<section class="container trainers">
+  <div class="section-title">
+    <h2>Your Scooters</h2>
+    <p>Your Reservations</p>
   </div>
-
-  <div class="row d-flex justify-content-center" *ngFor="let day of reservationsByDayMap | keyvalue">
-    <div *ngFor="let scooter of day.value" class="col-lg-3 col-md-6 d-flex justify-content-center align-items-center scooter">
-      <div class="member" [class.background-red]="scooter.scooterstatus=='BUSY'">
-          <div class="member-content" >
-              <h4>{{scooter.brand}}</h4>
-              <p>
-                {{day.key}}
-              </p>
-              <img src="../../../assets/img/Turboant X7 senza sfondo.png" class="img-fluid first-img" alt="">
-            <ul class="list-scooter">
-            <li>Color: {{scooter.color}}</li>
-            <li>Plate: {{scooter.plate}}</li>
-            <li>Model: {{scooter.model}}</li>
-            <li>{{scooter.id}}</li>
-            <li>{{scooter.scooterstatus}}</li>
-            <li><button [disabled]="scooter.scooterstatus=='BUSY'" type="button" class="btn btn-dark" (click)="changeStatus(scooter.id)" (click)="deleteReservation(scooter.reservationId)">DELETE</button></li>
+  <div class="reservation" *ngFor="let day of reservationsByDayMap | keyvalue">
+    <h3>Reservations for {{day.key}}</h3>
+    <div class="member member-content">
+      <div class="row" *ngFor="let scooter of day.value">
+        <div class="col-lg-3">
+          <img class="second-img" src="../../../assets/img/Turboant X7 senza sfondo.png">
+        </div>
+        <div class="col-lg-6">
+          <h4 class="titleScooter">{{scooter.brand}}</h4>
+          <ul class="list-scooter row d-flex">
+            <div class="col-6 align-self-center">
+              <li>Color: <span>{{scooter.color}}</span></li>
+              <li>Plate: <span>{{scooter.plate}}</span></li>
+            </div>
+            <div class="col-6">
+              <li>Model: <span>{{scooter.model}}</span></li>
+              <li>Status: <span>{{scooter.scooterstatus}}</span></li>
+            </div>
           </ul>
         </div>
+        <div class="col-lg-3 div-button-reserve">
+          <button [disabled]="scooter.scooterstatus=='BUSY'" type="button" class="btn btn-dark"  (click)="deleteReservation(scooter.reservationId)">DELETE</button>
         </div>
       </div>
     </div>
-</div> 
- </section> 
-  <app-footer></app-footer>
+  </div>
+</section>
+<app-footer></app-footer>
 
+    

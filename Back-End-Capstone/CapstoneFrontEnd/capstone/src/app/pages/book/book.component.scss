@@ -1,124 +1,173 @@
+.h3{
+  justify-content: center;
+  font-size:small
+}
+
+.search-button{
+  margin-left: 22px;
+  background: #5fcf81e5;
+  color: #fff;
+  border-radius: 50px;
+  border: 1px solid white;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.second-img{
+  height: 230px;
+}
+
+.titleScooter{
+  text-align: center;
+}
+
+.div-button{
+  margin-top: 2rem;
+  margin-left: 3rem;
+}
+
+.div-button-reserve{
+  margin-top: 164px;
+}
+
 .section{
     padding-top: 20px;
   }
-  .trainers{
-    margin-top: 150px;
-    margin-bottom: 50px;
+
+.trainers{
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+
+.trainers .member {
+  border-radius: 30px;
+  background-color: #3ac162;
+  &.background-red{
+    background-color: rgba(252, 118, 118, 0.762);
   }
-  .trainers .member {
-      text-align: center;
-      align-items: center;
-      margin-top: 20px;
-      border: 1px solid #eef0ef;
-      background: #fff;
-      border-radius: 30px;
-      background-color: #3ac162;
-      width: 376px;
-      &.background-red{
-        background-color: rgba(252, 118, 118, 0.762);
-      }
-    }
-    
-    .trainers .member img {
-      margin: -1px -1px 32px -1px;
-      height: 230px;
-      &.first-img{
-        margin-bottom: 0;
-      }
-    }
-    
-    .trainers .member .member-content {
-      padding: 20px 20px 20px 20px;
-    }
-    
-    .trainers .member h4 {
-      font-weight: 700;
-      margin-bottom: 2px;
-      font-style: italic;
-    }
-    
-    .trainers .member span {
-      display: block;
-      font-size: 13px;
-    }
-    
-    .trainers .member p {
-      padding-top: 10px;
-      font-size: 14px;
-      font-style: italic;
-      color: #aaaaaa;
-    }
-    
-    .trainers .member .social {
-      margin-top: 15px;
-    }
-    
-    .trainers .member .social a {
-      color: #7e9486;
-      transition: 0.3s;
-    }
-    
-    .trainers .member .social a:hover {
-      color: #5fcf80;
-    }
-    
-    .trainers .member .social i {
-      font-size: 18px;
-      margin: 0 2px;
-    }
-  
-    .row{
-      justify-content: center;
-    }
-  
-    .img-fluid{
-      border-top-left-radius: 30px;
-      border-top-right-radius: 30px;
-    }
-  
-    
-    
-    .section-title {
-      padding-bottom: 40px;
-      color: #3ac162;
-    }
-    
-    .section-title h2 {
-      font-size: 20px;
-      font-weight: 500;
-      padding: 0;
-      line-height: 1px;
-      margin: 0 0 5px 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #aaaaaa;
-      font-family: "Poppins", sans-serif;
-    }
-    
-    .section-title h2::after {
-      content: "";
-      width: 120px;
-      height: 1px;
-      display: inline-block;
-      background: #9ae1af;
-      margin: 4px 10px;
-    }
-    
-    .section-title p {
-      margin: 0;
-      font-size: 36px;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-family: "Poppins", sans-serif;
-      color: #3ac162;;
-    }
+}
 
-    .list-scooter{
-        list-style-type: none;
-        padding-left: 0;
-    }
+.trainers .member img {
+  height: 230px;
+  &.first-img{
+    margin-bottom: 0;
+  }
+}
 
-    .list-scooter li{
-      font-size: 18px;
-      font-family: "Poppins", sans-serif;
-    }
+.trainers .member .member-content {
+  padding: 20px 20px 20px 20px;
+}
+
+.trainers .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-style: italic;
+}
+
+.trainers .member span {
+  display: block;
+  font-size: 13px;
+}
+
+.trainers .member p {
+  padding-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+.trainers .member .social {
+  margin-top: 15px;
+}
+
+.trainers .member .social a {
+  color: #7e9486;
+  transition: 0.3s;
+}
+
+.trainers .member .social a:hover {
+  color: #5fcf80;
+}
+
+.trainers .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
+}
+
+.row{
+  justify-content: center;
+}
+
+.img-fluid{
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.datepicker{
+  color:rgb(0, 0, 0);
+  background-color: #3ac163c8;
+}
+
+.section-title {
+  padding-bottom: 40px;
+  color: #3ac162;
+}
+
+.section-title h2 {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #9ae1af;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #3ac162;;
+}
+
+.scooter{
+  justify-content :center;
+  align-items: center;
+}
+
+.book{
+  font-weight: bold;
+}
+
+.list-scooter{
+  list-style-type: none;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.list-scooter li{
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-date h3{
+  font-size: 20px;
+}
+
+.reservation{
+  margin-bottom:30px;
+}

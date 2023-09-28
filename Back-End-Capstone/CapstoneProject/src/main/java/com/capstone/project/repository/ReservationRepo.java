@@ -15,8 +15,8 @@ public interface ReservationRepo extends CrudRepository<Reservation, Long>{
 	@Query("SELECT p FROM Reservation p WHERE p.bookingDay = :bookingDay AND p.scooter = :scooter")
     public Reservation findReservationByDateAndScooter(LocalDate bookingDay, Scooter scooter);
 
-    @Query("SELECT p FROM Reservation p WHERE p.user = :user AND p.bookingDay = :bookingDay")
-    public Reservation findReservationByUserAndDate(User user, LocalDate bookingDay);
+    @Query("SELECT p FROM Reservation p WHERE p.user = :user")
+    public List<Reservation> findReservationByUser(User user);
     
     @Query("SELECT p FROM Reservation p WHERE p.bookingDay = :bookingDay")
     public List<Reservation> findReservationByDate(LocalDate bookingDay);
