@@ -5,15 +5,9 @@
     }
 }
 
-// @media (max-width: 991px) {
-//     &.cascading-right {
-//         background-image: url("../../../assets/img/Top\ 4\ electric\ scooters\ for\ college\ students.jpeg");
-
-//     }
-// }
-
 .text-center{
     margin-top: 150px;
+    margin-bottom:150px;
 }
 
 .card{
@@ -297,4 +291,12 @@
 
 .navbar-mobile .dropdown>.dropdown-active {
     display: block;
+}
+
+@media(max-width:991.98px) {
+
+
+    .img-register{
+        display: none;
+    }
 }

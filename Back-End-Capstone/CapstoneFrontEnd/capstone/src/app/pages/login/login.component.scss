@@ -6,6 +6,7 @@
 
   .text-center{
     margin-top: 150px;
+    margin-bottom:150px;
   }
 
 .card{
@@ -17,10 +18,13 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    color:rgb(0, 0, 0);
 }
+
 
 .cascading-right{
     margin-right: -50px;
+    background-color: #d8c4bc9a;
 }
 
 #header {
@@ -289,3 +293,10 @@
   .navbar-mobile .dropdown>.dropdown-active {
     display: block;
   }
+  @media(max-width:991.98px) {
+
+
+    .img-login{
+        display: none;
+    }
+}

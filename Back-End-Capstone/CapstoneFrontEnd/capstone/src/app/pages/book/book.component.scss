@@ -15,7 +15,7 @@
 }
 
 .second-img{
-  height: 230px;
+  height: 200px;
 }
 
 .titleScooter{
@@ -28,7 +28,7 @@
 }
 
 .div-button-reserve{
-  margin-top: 164px;
+  margin-top: 140px;
 }
 
 .section{
@@ -95,9 +95,7 @@
   margin: 0 2px;
 }
 
-.row{
-  justify-content: center;
-}
+
 
 .img-fluid{
   border-top-left-radius: 30px;
@@ -153,10 +151,47 @@
   font-weight: bold;
 }
 
+
+
+@media(max-width: 991.98px){
+  .book{
+    margin-bottom:2rem;
+  }
+  .book-scooter{
+    justify-content: space-around;
+    margin:10px;
+  }
+}
+
+@media(max-width: 767px){
+  .column-first-img{
+    text-align: center;
+  }
+  .div-caracter{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1px;
+  }
+  .div-button-reserve{
+    margin-top:1rem;
+    text-align: center;
+  }
+}
+
 .list-scooter{
   list-style-type: none;
   margin-top: 30px;
   text-align: center;
+}
+
+@media(max-width: 768px){
+.list-scooter{
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1px;
+  margin-top:0;
+  text-align:start;
+  }
 }
 
 .list-scooter li{
@@ -170,4 +205,45 @@
 
 .reservation{
   margin-bottom:30px;
+}
+
+@media(max-width: 991.98px) {
+  .section-date{
+    text-align: center;
+  }
+  .div-button{
+    margin-left: 0;
+    margin-right:1rem;
+    margin-bottom: 5rem;
+  }
+}
+
+.column-second-img{
+  text-align:center;
+}
+
+.div-list{
+  margin-top: 50px;
+}
+
+@media(max-width:991.98px){
+  .div-button-delete{
+   margin-top:0;
+   text-align: end;
+   padding-right: 3rem;
+
+  }
+}
+
+@media(max-width:767px){
+  .list-scooter{
+    padding-left:0;
+  }
+  .div-list{
+    margin-top:0;
+  }
+  .div-button-delete{
+    text-align:center;
+    margin-top: 1rem;
+  }
 }

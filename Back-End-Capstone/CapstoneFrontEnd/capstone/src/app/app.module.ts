@@ -8,7 +8,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { OurscootersComponent } from './components/ourscooters/ourscooters.component';
@@ -29,7 +28,7 @@ import { LoginComponent } from './pages/login/login.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    HeaderComponent,
+
     HeroComponent,
     AboutusComponent,
     OurscootersComponent,

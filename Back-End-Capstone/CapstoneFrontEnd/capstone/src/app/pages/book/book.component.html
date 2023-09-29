@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-navbar></app-navbar>
 <section class="trainers">
   <div class="container">
 
@@ -7,9 +7,9 @@
       <p>Reserve your scooter</p>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="row d-flex">
-        <div class="col-lg-4 justify-content-between section-date">
+        <div class="col-lg-4 col-md-12 section-date">
             <h3>Select the date and source</h3>
             <ngb-datepicker class="datepicker" #dp [(ngModel)]="model"></ngb-datepicker>
             <div class="div-button">
@@ -21,12 +21,12 @@
           <div class="mb-5" *ngFor="let scooter of scooters">
             <div class="member" [class.background-red]="scooter.scooterstatus=='BUSY'">
                 <div class="member-content">
-                  <div class="row justify-content-end">
-                    <div class="col-lg-3">
+                  <div class="row book-scooter">
+                    <h4 class="titleScooter">{{scooter.brand}}</h4>
+                    <div class="col-lg-3 col-md-2 column-first-img">
                       <img src="../../../assets/img/Turboant X7 senza sfondo.png">
                     </div>
-                    <div class="col-lg-6">
-                      <h4 class="titleScooter">{{scooter.brand}}</h4>
+                    <div class="col-lg-6 col-md-4 div-caracter">
                       <ul class="list-scooter row d-flex">
                         <div class="col-6 align-self-center">
                         <li>Color: <span>{{scooter.color}}</span></li>
@@ -38,7 +38,7 @@
                       </div>
                       </ul>
                     </div>
-                    <div class="col-lg-3 div-button-reserve">
+                    <div class="col-lg-3 col-md-2 div-button-reserve">
                         <button [disabled]="scooter.scooterstatus=='BUSY'" type="button" class="btn btn-dark" (click)="changeStatus(scooter.id)">RESERVE</button>
                     </div>
                   </div>
@@ -58,28 +58,31 @@
   </div>
   <div class="reservation" *ngFor="let day of reservationsByDayMap | keyvalue">
     <h3>Reservations for {{day.key}}</h3>
-    <div class="member member-content">
-      <div class="row" *ngFor="let scooter of day.value">
-        <div class="col-lg-3">
+    <div class="member" *ngFor="let scooter of day.value">
+      <div class="member-content mb-5">
+        <h4 class="titleScooter">{{scooter.brand}}</h4>
+      <div class="row calendar-reservations">
+        <div class="col-lg-3 col-md-4 column-second-img">
           <img class="second-img" src="../../../assets/img/Turboant X7 senza sfondo.png">
         </div>
-        <div class="col-lg-6">
-          <h4 class="titleScooter">{{scooter.brand}}</h4>
+        <div class="col-lg-6 col-md-8 div-list">
           <ul class="list-scooter row d-flex">
-            <div class="col-6 align-self-center">
+            <div class="col-4 align-self-center">
               <li>Color: <span>{{scooter.color}}</span></li>
+            </div>
+            <div class="col-4">
               <li>Plate: <span>{{scooter.plate}}</span></li>
             </div>
-            <div class="col-6">
+            <div class="col-4">
               <li>Model: <span>{{scooter.model}}</span></li>
-              <li>Status: <span>{{scooter.scooterstatus}}</span></li>
             </div>
           </ul>
         </div>
-        <div class="col-lg-3 div-button-reserve">
+        <div class="col-lg-3 ps-5 div-button-reserve div-button-delete">
           <button [disabled]="scooter.scooterstatus=='BUSY'" type="button" class="btn btn-dark"  (click)="deleteReservation(scooter.reservationId)">DELETE</button>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>

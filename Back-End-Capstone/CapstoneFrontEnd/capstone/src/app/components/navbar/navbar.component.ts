@@ -7,8 +7,8 @@ import { AuthService } from 'src/app/pages/auth/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  protected isCollapsed= false;
-  protected isLoggedIn$;
+  isCollapsed= false;
+  isLoggedIn$;
 
 constructor(private authService: AuthService){
       this.isLoggedIn$=authService.isLoggedIn$
